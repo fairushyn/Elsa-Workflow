@@ -10,6 +10,7 @@ namespace Elsa_Workflow.Extensions
             return services
                 .AddActivity<CreateUser>()
                 .AddActivity<ActivateUser>()
+                .AddActivity<SendDataToSSI>() // TODO: needs implementation;
                 .AddActivity<DeleteUser>();
         }
     }
