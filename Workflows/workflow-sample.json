@@ -25,50 +25,16 @@
       "top": 132,
       "state": {
         "userName": {
-          "expression": "{{ Input.RegistrationModel.Name }}",
+          "expression": "{{ Input.RegistrationModel.Alias }}",
           "syntax": "Liquid"
         },
         "email": {
-          "expression": "{{ Input.RegistrationModel.Email }}",
-          "syntax": "Liquid"
-        },
-        "password": {
-          "expression": "{{ Input.RegistrationModel.Password }}",
+          "expression": "{{ Input.RegistrationModel.TestNumber }}",
           "syntax": "Liquid"
         },
         "name": "CreateUser",
         "title": "",
         "description": ""
-      },
-      "blocking": false,
-      "executed": false,
-      "faulted": false
-    },
-    {
-      "id": "e40b865b-45fe-4b9a-a175-07b383ec270c",
-      "type": "SendEmail",
-      "left": 792,
-      "top": 30,
-      "state": {
-        "from": {
-          "expression": "noreply@acme.com",
-          "syntax": "Literal"
-        },
-        "to": {
-          "expression": "{{ Activities.CreateUser.User.Email }}",
-          "syntax": "Liquid"
-        },
-        "subject": {
-          "expression": "Activate your account!",
-          "syntax": "Literal"
-        },
-        "body": {
-          "expression": "<p>Welcome, {{ Activities.CreateUser.User.Name }}!</p>\r\n<p>Please <a href=\"{{ 'Activate' | signal_url }}\">activate your account </a> within the next 5 minutes.</p>",
-          "syntax": "Liquid"
-        },
-        "name": "",
-        "title": "Send Activation Link Email",
-        "description": "Send an email containing an activation link."
       },
       "blocking": false,
       "executed": false,

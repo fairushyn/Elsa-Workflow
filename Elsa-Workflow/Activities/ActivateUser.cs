@@ -7,9 +7,6 @@ using Elsa.Services.Models;
 using Elsa_Workflow.Models;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -46,7 +43,6 @@ namespace Elsa_Workflow.Activities
             // Updates user info on db
             user.IsActive = true;
             await _store.ReplaceOneAsync(x => x.Id == userId, user, cancellationToken: cancellationToken);
-
             return Done();
         }
     }

@@ -7,7 +7,6 @@ using Elsa.Persistence.MongoDb.Extensions;
 using Elsa_Workflow.Extensions;
 using Elsa_Workflow.Handlers;
 using Elsa_Workflow.Models;
-using Elsa_Workflow.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -37,9 +36,6 @@ namespace Elsa_Workflow.Configurations
                 .AddTimerActivities(options => options.Bind(configuration.GetSection("Elsa:Timers")))
                 .AddUserActivities()
                 
-                // Add the password hasher service
-                .AddSingleton<IPasswordHasher, PasswordHasher>()
-
                 // Add a MongoDB collection
                 .AddMongoDbCollection<User>("Users")
                 

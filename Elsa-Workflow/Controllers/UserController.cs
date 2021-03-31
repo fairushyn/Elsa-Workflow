@@ -28,8 +28,8 @@ namespace Elsa_Workflow.Controllers
         public async Task<IActionResult> UserRegistration(RegistrationModel request)
         {
             _logger.LogInformation("Registering new user...");
-            _logger.LogInformation($"name: {request.Name}");
-            _logger.LogInformation($"email: {request.Email}");
+            _logger.LogInformation($"alias: {request.Alias}");
+            _logger.LogInformation($"testNumber: {request.TestNumber}");
 
             try
             {
@@ -38,7 +38,7 @@ namespace Elsa_Workflow.Controllers
                 return StatusCode(StatusCodes.Status200OK);
             } catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error calling user registration for user {request.Name}");
+                _logger.LogError(ex, $"Error calling user registration for user {request.Alias}");
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
