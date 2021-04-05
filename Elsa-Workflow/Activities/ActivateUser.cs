@@ -6,9 +6,10 @@ using Elsa.Services;
 using Elsa.Services.Models;
 using Elsa_Workflow.Models;
 using MongoDB.Driver;
-using MongoDB.Driver.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Elsa_Workflow.Extensions;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Elsa_Workflow.Activities
 {
@@ -16,14 +17,16 @@ namespace Elsa_Workflow.Activities
     public class ActivateUser : Activity
     {
         private readonly IMongoCollection<User> _store;
+        private readonly IDistributedCache _redisCache;
 
-        public ActivateUser(IMongoCollection<User> store)
+        public ActivateUser(IMongoCollection<User> store, IDistributedCache redisCache)
         {
             _store = store;
+            _redisCache = redisCache;
         }
-
-        [ActivityProperty(Hint = "Enter an expression that evaluates to the ID of the user to activate.")]
-        public WorkflowExpression<string> UserId
+        
+        [ActivityProperty(Hint = "Enter an expression that evaluates to the alias of the user to create.")]
+        public WorkflowExpression<string> Alias
         {
             get => GetState<WorkflowExpression<string>>();
             set => SetState(value);
@@ -32,17 +35,17 @@ namespace Elsa_Workflow.Activities
         protected override async Task<ActivityExecutionResult> OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken)
         {
             // Retrieves user from db
-            var userId = await context.EvaluateAsync(UserId, cancellationToken);
-            var user = await _store.AsQueryable().FirstOrDefaultAsync(x => x.Id == userId, cancellationToken);
-
+            var recordKey  = await context.EvaluateAsync(Alias, cancellationToken);
+            var user = await _redisCache.GetRecordAsync<User>(recordKey);
+            
             if (user == null)
             {
                 return Outcome("Not Found");
             }
 
-            // Updates user info on db
-            user.IsActive = true;
-            await _store.ReplaceOneAsync(x => x.Id == userId, user, cancellationToken: cancellationToken);
+            // Updates user info on redirs 
+            user.IsActive = true; 
+            await _redisCache.SetRecordAsync(recordKey, user);
             return Done();
         }
     }

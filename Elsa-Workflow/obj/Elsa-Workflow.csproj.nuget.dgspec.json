@@ -1,26 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Roma\\Documents\\GitHub\\elsa-workflow\\Elsa-Workflow\\Elsa-Workflow\\Elsa-Workflow.csproj": {}
+    "C:\\Users\\fairu\\Documents\\GitHub\\Elsa-Workflow\\Elsa-Workflow\\Elsa-Workflow.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Roma\\Documents\\GitHub\\elsa-workflow\\Elsa-Workflow\\Elsa-Workflow\\Elsa-Workflow.csproj": {
+    "C:\\Users\\fairu\\Documents\\GitHub\\Elsa-Workflow\\Elsa-Workflow\\Elsa-Workflow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Roma\\Documents\\GitHub\\elsa-workflow\\Elsa-Workflow\\Elsa-Workflow\\Elsa-Workflow.csproj",
+        "projectUniqueName": "C:\\Users\\fairu\\Documents\\GitHub\\Elsa-Workflow\\Elsa-Workflow\\Elsa-Workflow.csproj",
         "projectName": "Elsa-Workflow",
-        "projectPath": "C:\\Users\\Roma\\Documents\\GitHub\\elsa-workflow\\Elsa-Workflow\\Elsa-Workflow\\Elsa-Workflow.csproj",
-        "packagesPath": "C:\\Users\\Roma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Roma\\Documents\\GitHub\\elsa-workflow\\Elsa-Workflow\\Elsa-Workflow\\obj\\",
+        "projectPath": "C:\\Users\\fairu\\Documents\\GitHub\\Elsa-Workflow\\Elsa-Workflow\\Elsa-Workflow.csproj",
+        "packagesPath": "C:\\Users\\fairu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fairu\\Documents\\GitHub\\Elsa-Workflow\\Elsa-Workflow\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
         ],
         "configFilePaths": [
-          "C:\\Users\\Roma\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\fairu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -59,9 +56,17 @@
               "target": "Package",
               "version": "[1.2.2.29, )"
             },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
             "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.2.4, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

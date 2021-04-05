@@ -6,7 +6,5 @@ namespace Elsa_Workflow.Models
     {
         [Required]
         public string Alias { get; set; }
-        [Required]
-        public string TestNumber { get; set; }
     }
 }

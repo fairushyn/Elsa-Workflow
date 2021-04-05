@@ -35,7 +35,6 @@ namespace Elsa_Workflow.Configurations
                 .AddHttpActivities(options => options.Bind(configuration.GetSection("Elsa:Http")))
                 .AddTimerActivities(options => options.Bind(configuration.GetSection("Elsa:Timers")))
                 .AddUserActivities()
-                
                 // Add a MongoDB collection
                 .AddMongoDbCollection<User>("Users")
                 

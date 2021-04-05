@@ -29,6 +29,12 @@ namespace Elsa_Workflow
 
             // Configuring Elsa
             ElsaConfiguration.ConfigureElsa(services, Configuration);
+            
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = Configuration.GetConnectionString("Redis");
+                // options.InstanceName = "Elsa_Workflow_";
+            });
 
             // Configuring Swagger
             SwaggerConfiguration.ConfigureSwagger(services);

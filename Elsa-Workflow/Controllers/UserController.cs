@@ -29,7 +29,6 @@ namespace Elsa_Workflow.Controllers
         {
             _logger.LogInformation("Registering new user...");
             _logger.LogInformation($"alias: {request.Alias}");
-            _logger.LogInformation($"testNumber: {request.TestNumber}");
 
             try
             {
