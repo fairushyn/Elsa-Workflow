@@ -23,18 +23,17 @@ namespace Elsa_Workflow.Activities
         private readonly IIdGenerator _idGenerator;
         private readonly IDistributedCache _redisCache;
         private readonly IWorkflowInvoker _workflowInvoker;
-        private Workflow HttpWorkflow { get; } 
+        
         public CreateUser(
             ILogger<CreateUser> logger,
             IMongoCollection<User> store,
-            IIdGenerator idGenerator, IDistributedCache redisCache, IWorkflowInvoker workflowInvoker, Workflow httpWorkflow)
+            IIdGenerator idGenerator, IDistributedCache redisCache, IWorkflowInvoker workflowInvoker)
         {
             _logger = logger;
             _store = store;
             _idGenerator = idGenerator;
             _redisCache = redisCache;
             _workflowInvoker = workflowInvoker;
-            HttpWorkflow = httpWorkflow;
         }
         
         [ActivityProperty(Hint = "Enter an expression that evaluates to the alias of the user to create.")]
